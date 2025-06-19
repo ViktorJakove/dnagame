@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DNAgamesa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="library" class="panel">
+      <h3>Knihovna</h3>
+    </div>
+    
+    <div id="workspace" class="panel" ondragover="event.preventDefault()" ondrop="onDrop(event)">
+      <h3>DNA</h3>
+    </div>
+    
+    <div id="stats" class="panel">
+      <h3>Jedinec</h3>
+      <pre id="statsOutput">agro: 0
+def: 0
+hp: 0
+stamina: 0</pre>
+    </div>
+  </div>
+  <script src="builder.js"></script>
+</body>
+</html>

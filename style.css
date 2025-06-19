@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+#container {
+  display: flex;
+  width: 100%;
+}
+
+.panel {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  text-align: center;
+}
+
+#library {
+  background: #f8f8f8;
+  border-right: 1px solid #ccc;
+}
+
+#workspace {
+  background: #eaeaea;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#stats {
+  background: #f0f0f0;
+  font-size: 16px;
+}
+
+.block {
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: grab;
+  user-select: none;
+}
