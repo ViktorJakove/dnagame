@@ -58,3 +58,30 @@ body {
   cursor: grab;
   user-select: none;
 }
+
+/* ...existing code... */
+
+.shelf {
+  width: 140px;
+  height: 50px;
+  margin: 8px 0;
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.shelf.inaccessible {
+  background: #ddd;
+  border-style: solid;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.shelf.occupied {
+  border-color: #888;
+}

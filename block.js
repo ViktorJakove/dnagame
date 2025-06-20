@@ -26,14 +26,23 @@ export class Block{
 		this.description = description || "No description provided";
 	}
 	toElement(draggable = true){
-		const div = document.createElement('div');
-		div.className = 'block';
-		div.style.backgroundColor = this.color;
-		div.textContent = this.name;
-		
-		div.draggable = true;
-		div.addEventListener('dragstart',(e)=> {e.dataTransfer.setData('text/plain', JSON.stringify(this));});
+        const div = document.createElement('div');
+        div.className = 'block';
+        div.style.backgroundColor = this.color;
+        div.textContent = this.name;
+        
+        div.draggable = true;
+        div.addEventListener('dragstart',(e)=> {
+            // Store the preset key instead of the whole object
+            e.dataTransfer.setData('text/plain', this.presetKey || this.name.split(' ')[0]);
+            setTimeout(() => {
+                if(div.parentElement && div.parentElement.classList.contains('shelf')){
+                    div.parentElement.classList.remove('occupied');
+                    div.remove();
+                }
+            },0)
+        });
 
-		return div;
-	}
+        return div;
+    }
 }
