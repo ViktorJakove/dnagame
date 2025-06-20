@@ -1,7 +1,8 @@
 export class Block{
 	/**
+   * @param {string} name
    * @param {color} color
-   * @param {number} helath
+   * @param {number} health
    * @param {number} defense
    * @param {number} stamina
    * @param {number} power
@@ -11,7 +12,8 @@ export class Block{
    * @param {number} pp
    * @param {string} description
    */
-	constructor(color ,health, defense, stamina, power, weight, aggression, intelligence, pp,description){
+	constructor(name, color, health, defense, stamina, power, weight, aggression, intelligence, pp,description){
+		this.name = name;
 		this.color = color;
 		this.health = health;
 		this.defense = defense;
@@ -23,5 +25,15 @@ export class Block{
 		this.pp = pp;
 		this.description = description || "No description provided";
 	}
+	toElement(draggable = true){
+		const div = document.createElement('div');
+		div.className = 'block';
+		div.style.backgroundColor = this.color;
+		div.textContent = this.name;
+		
+		div.draggable = true;
+		div.addEventListener('dragstart',(e)=> {e.dataTransfer.setData('text/plain', JSON.stringify(this));});
 
+		return div;
+	}
 }
